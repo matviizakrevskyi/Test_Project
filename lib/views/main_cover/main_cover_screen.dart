@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/views/main_cover/main_cover_cubit.dart';
 import 'package:test_project/views/main_cover/main_cover_state.dart';
+import 'package:test_project/views/styling.dart';
 
 class MainCoverScreen extends StatelessWidget {
   const MainCoverScreen({super.key});
@@ -12,6 +13,7 @@ class MainCoverScreen extends StatelessWidget {
     return BlocBuilder<MainCoverCubit, MainCoverState>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: CustomColors.main,
           bottomNavigationBar: _BottomNavigationBar(
             onTab: (index) {
               cubit.changeScreen(index);
@@ -34,16 +36,20 @@ class _BottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _BottomBarItem(
-            onTap: () {
-              onTab(0);
-            },
-            name: "Home",
-            icon: Icons.home)
-      ],
+    return Ink(
+      width: MediaQuery.of(context).size.width,
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _BottomBarItem(
+              onTap: () {
+                onTab(0);
+              },
+              name: "Home",
+              icon: Icons.home)
+        ],
+      ),
     );
   }
 }
@@ -58,7 +64,7 @@ class _BottomBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(8),
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         onTap: onTap,
@@ -72,9 +78,7 @@ class _BottomBarItem extends StatelessWidget {
                 icon,
                 color: Colors.black,
               ),
-              Text(
-                name,
-              )
+              Text(name, style: CustomTextStyles.secondary)
             ],
           ),
         ),
