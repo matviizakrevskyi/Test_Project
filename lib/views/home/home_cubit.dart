@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/views/home/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  late Timer _timer;
+  late Timer _timer = Timer(Duration.zero, () {});
   int lastSelectedDuration = 60;
 
   HomeCubit() : super(HomeState(60, false));

@@ -43,11 +43,19 @@ class _BottomNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _BottomBarItem(
-              onTap: () {
-                onTab(0);
-              },
-              name: "Home",
-              icon: Icons.home)
+            onTap: () {
+              onTab(0);
+            },
+            name: "Home",
+            icon: Icons.home,
+          ),
+          _BottomBarItem(
+            onTap: () {
+              onTab(1);
+            },
+            name: "Settings",
+            icon: Icons.settings,
+          ),
         ],
       ),
     );
