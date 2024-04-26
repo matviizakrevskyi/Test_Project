@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/views/styling.dart';
 import 'package:test_project/views/widgets/custom_button.dart';
@@ -61,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
         CustomButton(
           title: "Rate App",
           icon: Icons.star,
-          onTap: () {},
+          onTap: () {context.setLocale(Locale("en", "US"));},
         ),
         const SizedBox(
           height: 16,
@@ -69,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
         CustomButton(
           title: "Share App",
           icon: Icons.share,
-          onTap: () {},
+          onTap: () {context.setLocale(Locale("de", "DE"));},
         ),
         const SizedBox(
           height: 16,
