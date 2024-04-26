@@ -5,6 +5,7 @@ import 'package:test_project/extension/int_ext_time.dart';
 import 'package:test_project/views/home/home_cubit.dart';
 import 'package:test_project/views/home/home_state.dart';
 import 'package:test_project/views/styling.dart';
+import 'package:test_project/views/widgets/pulsating_widget.dart';
 import 'package:test_project/views/widgets/time_picker.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 onTap: state.isPlaying
                     ? null
                     : () {
@@ -32,16 +34,46 @@ class HomeScreen extends StatelessWidget {
                               );
                             });
                       },
-                child: Text(
-                  state.duration.formatTime(),
-                  style: CustomTextStyles.mainBold,
+                child: PulsatingWidget(
+                  isAnimate: state.isPlaying,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Text(
+                      state.duration.formatTime(),
+                      style: CustomTextStyles.h2,
+                    ),
+                  ),
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    cubit.onMainButton();
-                  },
-                  icon: state.isPlaying ? Icon(Icons.pause_outlined) : Icon(Icons.play_arrow))
+              const SizedBox(
+                height: 16,
+              ),
+              PulsatingWidget(
+                isAnimate: !state.isPlaying,
+                child: Ink(
+                  width: 60,
+                  height: 60,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      color: CustomColors.blue),
+                  child: InkWell(
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      onTap: () {
+                        cubit.onMainButton();
+                      },
+                      child: state.isPlaying
+                          ? const Icon(
+                              Icons.pause_outlined,
+                              color: Colors.white,
+                              size: 40,
+                            )
+                          : const Icon(
+                              Icons.play_arrow,
+                              color: Colors.white,
+                              size: 40,
+                            )),
+                ),
+              ),
             ],
           ),
         );
