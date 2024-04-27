@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rate_my_app/rate_my_app.dart';
@@ -7,6 +8,14 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit() : super(SettingsState(false));
+
+  onDropdownItem(BuildContext context, String item) {
+    if (item == "English") {
+      context.setLocale(const Locale("en", "US"));
+    } else if (item == "Germany") {
+      context.setLocale(const Locale("de", "DE"));
+    }
+  }
 
   onRate(BuildContext context) async {
     final rating = RateMyApp();

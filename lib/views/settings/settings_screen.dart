@@ -11,6 +11,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SettingsCubit>();
     return Column(
       children: [
         SizedBox(
@@ -41,11 +42,7 @@ class SettingsScreen extends StatelessWidget {
               items: const ["English", "Germany"],
               selectedItem: context.locale.languageCode == "en" ? "English" : "Germany",
               onItem: (item) {
-                if (item == "English") {
-                  context.setLocale(const Locale("en", "US"));
-                } else if (item == "Germany") {
-                  context.setLocale(const Locale("de", "DE"));
-                }
+                cubit.onDropdownItem(context, item);
               },
             ),
           ],
@@ -72,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
           title: "Rate App",
           icon: Icons.star,
           onTap: () {
-            context.read<SettingsCubit>().onRate(context);
+            cubit.onRate(context);
           },
         ),
         const SizedBox(
@@ -82,7 +79,7 @@ class SettingsScreen extends StatelessWidget {
           title: "Share App",
           icon: Icons.share,
           onTap: () {
-            context.read<SettingsCubit>().onShare();
+            cubit.onShare();
           },
         ),
         const SizedBox(
@@ -92,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
           title: "Contact Us",
           icon: Icons.mail,
           onTap: () {
-            context.read<SettingsCubit>().onContact();
+            cubit.onContact();
           },
         ),
       ],
