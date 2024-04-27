@@ -54,6 +54,13 @@ class _BottomNavigationBar extends StatelessWidget {
             onTap: () {
               onTab(1);
             },
+            name: "Location",
+            icon: Icons.location_on,
+          ),
+          _BottomBarItem(
+            onTap: () {
+              onTab(2);
+            },
             name: "Settings",
             icon: Icons.settings,
           ),

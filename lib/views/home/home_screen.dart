@@ -9,6 +9,8 @@ import 'package:test_project/views/widgets/pulsating_widget.dart';
 import 'package:test_project/views/widgets/time_picker.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<HomeCubit>();
