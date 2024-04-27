@@ -25,9 +25,11 @@ class MainCoverState {
 
   final int tabIndex;
   final bool isLoading;
+  final double animationOpacity;
 
-  MainCoverState(this.tabIndex, this.isLoading);
+  MainCoverState(this.tabIndex, this.isLoading, this.animationOpacity);
 
-  MainCoverState copyWith({int? tabIndex, bool? isLoading}) =>
-      MainCoverState(tabIndex ?? this.tabIndex, isLoading ?? this.isLoading);
+  MainCoverState copyWith({int? tabIndex, bool? isLoading, double? animationOpacity}) =>
+      MainCoverState(tabIndex ?? this.tabIndex, isLoading ?? this.isLoading,
+          animationOpacity ?? this.animationOpacity);
 }

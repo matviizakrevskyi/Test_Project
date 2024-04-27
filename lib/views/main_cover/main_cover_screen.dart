@@ -20,9 +20,13 @@ class MainCoverScreen extends StatelessWidget {
               cubit.changeScreen(index);
             },
           ),
-          body: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: MainCoverState.tabs[state.tabIndex],
+          body: AnimatedOpacity(
+            opacity: state.animationOpacity,
+            duration: Duration(milliseconds: state.animationOpacity == 0 ? 0 : 400),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: MainCoverState.tabs[state.tabIndex],
+            ),
           ),
         );
       },

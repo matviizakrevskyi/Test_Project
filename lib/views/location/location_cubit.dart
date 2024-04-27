@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -22,7 +24,9 @@ class LocationCubit extends Cubit<LocationState> {
   fetchData() async {
     emit(state.copyWith(isLoading: true));
     final getDataUseCase = GetLocationDataUseCase();
-    final location = await getDataUseCase.execute();
-    emit(state.copyWith(locationData: location, isLoading: false));
+    Timer(const Duration(milliseconds: 400), () async {
+      final location = await getDataUseCase.execute();
+      emit(state.copyWith(locationData: location, isLoading: false));
+    });
   }
 }
