@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_project/views/settings/settings_cubit.dart';
 import 'package:test_project/views/styling.dart';
 import 'package:test_project/views/widgets/custom_button.dart';
 import 'package:test_project/views/widgets/custom_dropdown_widget.dart';
@@ -29,15 +31,22 @@ class SettingsScreen extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             CustomDropdownButton(
-              items: ["English", "Germany"],
-              selectedItem: 'English',
+              items: const ["English", "Germany"],
+              selectedItem: context.locale.languageCode == "en" ? "English" : "Germany",
+              onItem: (item) {
+                if (item == "English") {
+                  context.setLocale(const Locale("en", "US"));
+                } else if (item == "Germany") {
+                  context.setLocale(const Locale("de", "DE"));
+                }
+              },
             ),
           ],
         ),
@@ -62,7 +71,9 @@ class SettingsScreen extends StatelessWidget {
         CustomButton(
           title: "Rate App",
           icon: Icons.star,
-          onTap: () {context.setLocale(Locale("en", "US"));},
+          onTap: () {
+            context.read<SettingsCubit>().onRate(context);
+          },
         ),
         const SizedBox(
           height: 16,
@@ -70,7 +81,9 @@ class SettingsScreen extends StatelessWidget {
         CustomButton(
           title: "Share App",
           icon: Icons.share,
-          onTap: () {context.setLocale(Locale("de", "DE"));},
+          onTap: () {
+            context.read<SettingsCubit>().onShare();
+          },
         ),
         const SizedBox(
           height: 16,
@@ -78,7 +91,9 @@ class SettingsScreen extends StatelessWidget {
         CustomButton(
           title: "Contact Us",
           icon: Icons.mail,
-          onTap: () {},
+          onTap: () {
+            context.read<SettingsCubit>().onContact();
+          },
         ),
       ],
     );

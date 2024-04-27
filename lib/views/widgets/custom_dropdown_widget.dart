@@ -5,8 +5,10 @@ import 'package:test_project/views/styling.dart';
 class CustomDropdownButton extends StatelessWidget {
   final List<String> items;
   final String selectedItem;
+  final Function(String) onItem;
 
-  const CustomDropdownButton({super.key, required this.items, required this.selectedItem});
+  const CustomDropdownButton(
+      {super.key, required this.items, required this.selectedItem, required this.onItem});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,8 @@ class CustomDropdownButton extends StatelessWidget {
                   ),
                 ))
             .toList(),
-        value: "English",
-        onChanged: (value) {},
+        value: selectedItem,
+        onChanged: (value) {onItem(value ?? "");},
         buttonStyleData: ButtonStyleData(
           height: 50,
           width: 160,
