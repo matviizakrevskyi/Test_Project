@@ -1,4 +1,4 @@
-# CV Project
+# Test Project
 
 #### The project consists of three screens:
 
