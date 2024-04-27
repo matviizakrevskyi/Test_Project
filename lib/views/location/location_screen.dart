@@ -28,42 +28,56 @@ class LocationScreen extends StatelessWidget {
             ),
           ),
           body: Stack(
+            fit: StackFit.expand,
             children: [
               state.isLoading
                   ? const Center(
                       child: CircularProgressIndicator(
                       color: CustomColors.black,
                     ))
-                  : Column(
-                      children: [
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        MapWidget(
-                          coords: LatLng(
-                              state.locationData?.lat ?? 0.0, state.locationData?.lon ?? 0.0),
-                          controller: cubit.mapController,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                  : RefreshIndicator(
+                      backgroundColor: Colors.white,
+                      color: CustomColors.black,
+                      onRefresh: () async {
+                        await cubit.fetchDataPullToRefresh();
+                      },
+                      child: SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: Column(
                           children: [
-                            SizedBox(
-                              width: 16,
+                            const SizedBox(
+                              height: 3,
                             ),
-                            Text(
-                              "Additional info",
-                              style: CustomTextStyles.h2,
+                            MapWidget(
+                              coords: LatLng(
+                                  state.locationData?.lat ?? 0.0, state.locationData?.lon ?? 0.0),
+                              controller: cubit.mapController,
                             ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 16,
+                                ),
+                                Text(
+                                  "Additional info",
+                                  style: CustomTextStyles.h2,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            if (state.locationData != null) InfoWidget(state.locationData!),
+                            const SizedBox(
+                              height: 32,
+                            )
                           ],
                         ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        if (state.locationData != null) InfoWidget(state.locationData!)
-                      ],
+                      ),
                     ),
               Positioned(
                 bottom: 16,
