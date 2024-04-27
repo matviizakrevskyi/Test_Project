@@ -27,7 +27,7 @@ class CustomDropdownButton extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                'Select Item',
+                '',
                 style: CustomTextStyles.mainBold,
               ),
             ),

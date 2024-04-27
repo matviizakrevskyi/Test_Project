@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/views/styling.dart';
@@ -27,8 +28,8 @@ class TimePicker extends StatelessWidget {
                     onDone(duration.inSeconds);
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    "Done",
+                  child: Text(
+                    "done".tr(),
                     style: CustomTextStyles.mainBold,
                   ),
                 ),
