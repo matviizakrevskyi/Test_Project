@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -19,10 +20,10 @@ class LocationScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: CustomColors.main,
           appBar: AppBar(
-            title: const Padding(
-              padding: EdgeInsets.only(left: 8),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 8),
               child: Text(
-                "Location",
+                "location".tr(),
                 style: CustomTextStyles.h1,
               ),
             ),
@@ -56,14 +57,14 @@ class LocationScreen extends StatelessWidget {
                             const SizedBox(
                               height: 16,
                             ),
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 16,
                                 ),
                                 Text(
-                                  "Additional info",
+                                  "additional_info".tr(),
                                   style: CustomTextStyles.h2,
                                 ),
                               ],
@@ -82,7 +83,7 @@ class LocationScreen extends StatelessWidget {
               Positioned(
                 bottom: 16,
                 child: CustomButton(
-                  title: "Reload",
+                  title: "reload".tr(),
                   icon: Icons.replay_circle_filled_outlined,
                   onTap: () {
                     if (!state.isLoading) {

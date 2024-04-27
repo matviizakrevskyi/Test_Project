@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,10 +20,10 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: CustomColors.main,
           appBar: AppBar(
-              title: const Padding(
-            padding: EdgeInsets.only(left: 8),
+              title: Padding(
+            padding: const EdgeInsets.only(left: 8),
             child: Text(
-              "Timer",
+              "timer".tr(),
               style: CustomTextStyles.h1,
             ),
           )),

@@ -1,3 +1,17 @@
 {
-    "home": "Home"
+    "home": "Home",
+    "timer": "Timer",
+    "location": "Location",
+    "additional_info": "Additional info",
+    "reload": "Reload",
+    "settings": "Settings",
+    "country": "Country",
+    "region": "Region",
+    "city": "City",
+    "zip_code": "Zip Code",
+    "timezone": "Timezone",
+    "other": "Other",
+    "rate_app": "Rate App",
+    "share_app": "Share App",
+    "contact_us": "Contact Us"
 }

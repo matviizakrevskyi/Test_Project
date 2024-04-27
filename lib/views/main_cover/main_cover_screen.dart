@@ -58,14 +58,14 @@ class _BottomNavigationBar extends StatelessWidget {
             onTap: () {
               onTab(1);
             },
-            name: "Location",
+            name: "location".tr(),
             icon: Icons.location_on,
           ),
           _BottomBarItem(
             onTap: () {
               onTab(2);
             },
-            name: "Settings",
+            name: "settings".tr(),
             icon: Icons.settings,
           ),
         ],
@@ -89,7 +89,7 @@ class _BottomBarItem extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         onTap: onTap,
         child: SizedBox(
-          width: 60,
+          width: 70,
           height: 50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +98,7 @@ class _BottomBarItem extends StatelessWidget {
                 icon,
                 color: Colors.black,
               ),
-              Text(name, style: CustomTextStyles.secondary)
+              Text(name, style: CustomTextStyles.secondaryBold.copyWith(fontSize: 12))
             ],
           ),
         ),

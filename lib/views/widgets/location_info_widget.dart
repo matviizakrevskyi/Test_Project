@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/models/location.dart';
 import 'package:test_project/views/styling.dart';
@@ -17,7 +18,7 @@ class InfoWidget extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "Country: ",
+                  text: "${"country".tr()}: ",
                   style: CustomTextStyles.main,
                   children: [
                     TextSpan(
@@ -35,7 +36,7 @@ class InfoWidget extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "Region: ",
+                  text: "${"region".tr()}: ",
                   style: CustomTextStyles.main,
                   children: [
                     TextSpan(
@@ -53,11 +54,9 @@ class InfoWidget extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "City: ",
+                  text: "${"city".tr()}: ",
                   style: CustomTextStyles.main,
-                  children: [
-                    TextSpan(text: "${locationData.city}", style: CustomTextStyles.mainBold)
-                  ],
+                  children: [TextSpan(text: locationData.city, style: CustomTextStyles.mainBold)],
                 ),
               )
             ],
@@ -69,7 +68,7 @@ class InfoWidget extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "Zip Code: ",
+                  text: "${"zip_code".tr()}: ",
                   style: CustomTextStyles.main,
                   children: [TextSpan(text: locationData.zip, style: CustomTextStyles.mainBold)],
                 ),
@@ -83,7 +82,7 @@ class InfoWidget extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "Timezone: ",
+                  text: "${"timezone".tr()}: ",
                   style: CustomTextStyles.main,
                   children: [
                     TextSpan(text: locationData.timezone, style: CustomTextStyles.mainBold)

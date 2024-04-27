@@ -1,3 +1,17 @@
 {
-    "home": "dom"
+    "home": "Zuhause",
+    "timer": "Zeitschaltuhr",
+    "location": "Ort",
+    "additional_info": "Zusatzinfo",
+    "reload": "Neu laden",
+    "settings": "Einstellung",
+    "country": "Land",
+    "region": "Region",
+    "city": "Stadt",
+    "zip_code": "Postleitzahl",
+    "timezone": "Zeitzone",
+    "other": "Sonstiges",
+    "rate_app": "Tarif App",
+    "share_app": "Teilen App",
+    "contact_us": "Kontakt Us"
 }

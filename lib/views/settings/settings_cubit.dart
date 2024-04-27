@@ -12,7 +12,7 @@ class SettingsCubit extends Cubit<SettingsState> {
   onDropdownItem(BuildContext context, String item) {
     if (item == "English") {
       context.setLocale(const Locale("en", "US"));
-    } else if (item == "Germany") {
+    } else if (item == "Deutsch") {
       context.setLocale(const Locale("de", "DE"));
     }
   }

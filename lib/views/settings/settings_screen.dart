@@ -15,10 +15,10 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: CustomColors.main,
       appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: 8),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 8),
           child: Text(
-            "Settings",
+            "settings".tr(),
             style: CustomTextStyles.h1,
           ),
         ),
@@ -35,8 +35,8 @@ class SettingsScreen extends StatelessWidget {
                 width: 16,
               ),
               CustomDropdownButton(
-                items: const ["English", "Germany"],
-                selectedItem: context.locale.languageCode == "en" ? "English" : "Germany",
+                items: const ["English", "Deutsch"],
+                selectedItem: context.locale.languageCode == "en" ? "English" : "Deutsch",
                 onItem: (item) {
                   cubit.onDropdownItem(context, item);
                 },
@@ -46,14 +46,14 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 24,
               ),
               Text(
-                "Other",
+                "other".tr(),
                 style: CustomTextStyles.h2,
               ),
             ],
@@ -62,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
             height: 16,
           ),
           CustomButton(
-            title: "Rate App",
+            title: "rate_app".tr(),
             icon: Icons.star,
             onTap: () {
               cubit.onRate(context);
@@ -72,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
             height: 16,
           ),
           CustomButton(
-            title: "Share App",
+            title: "share_app".tr(),
             icon: Icons.share,
             onTap: () {
               cubit.onShare();
@@ -82,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
             height: 16,
           ),
           CustomButton(
-            title: "Contact Us",
+            title: "contact_us".tr(),
             icon: Icons.mail,
             onTap: () {
               cubit.onContact();
